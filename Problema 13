@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+
+void revertirEnMismo(std::vector<float>& vec) {
+    size_t n = vec.size();
+    for (size_t i = 0; i < n / 2; ++i) {
+        std::swap(vec[i], vec[n - 1 - i]);
+    }
+}
+
+int main() {
+    std::vector<float> datos = {10.0, 20.0, 30.0, 40.0, 50.0};
+    revertirEnMismo(datos);
+
+    std::cout << "Revertido en si mismo: ";
+    for (float x : datos) std::cout << x << " ";
+    std::cout << std::endl;
+    return 0;
+}
