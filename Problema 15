@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+void mostrarTresMejores(std::vector<std::string> alumnos, std::vector<float> notas) {
+    if (notas.empty()) return;
+
+    // Ordenamiento descendente paralelo
+    for (size_t i = 0; i < notas.size(); i++) {
+        for (size_t j = i + 1; j < notas.size(); j++) {
+            if (notas[i] < notas[j]) {
+                std::swap(notas[i], notas[j]);
+                std::swap(alumnos[i], alumnos[j]);
+            }
+        }
+    }
+
+    std::cout << "--- TOP 3 MEJORES NOTAS ---" << std::endl;
+    size_t limite = std::min(static_cast<size_t>(3), notas.size());
+    for (size_t i = 0; i < limite; ++i) {
+        std::cout << i + 1 << ". " << alumnos[i] << " - Nota: " << notas[i] << std::endl;
+    }
+}
+
+int main() {
+    std::vector<std::string> alumnos = {"Carlos", "Ana", "Bruno", "Diana"};
+    std::vector<float> notas = {85.0, 92.5, 74.0, 98.0};
+
+    mostrarTresMejores(alumnos, notas);
+    return 0;
+}
