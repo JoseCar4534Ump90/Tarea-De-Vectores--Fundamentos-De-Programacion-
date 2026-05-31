@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+std::vector<float> eliminarDuplicados(const std::vector<float>& vec) {
+    std::vector<float> resultado;
+    for (float num : vec) {
+        if (std::find(resultado.begin(), resultado.end(), num) == resultado.end()) {
+            resultado.push_back(num);
+        }
+    }
+    return resultado;
+}
+
+int main() {
+    std::vector<float> datos = {4.0, 2.0, 4.0, 5.0, 2.0, 9.0};
+    std::vector<float> limpios = eliminarDuplicados(datos);
+
+    std::cout << "Sin duplicados: ";
+    for (float x : limpios) std::cout << x << " ";
+    std::cout << std::endl;
+    return 0;
+}
