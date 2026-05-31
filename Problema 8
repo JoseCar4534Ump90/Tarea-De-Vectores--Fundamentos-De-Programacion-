@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+float maximaDiferenciaConsecutiva(const std::vector<float>& vec) {
+    if (vec.size() < 2) return 0;
+    float maxDif = std::abs(vec[0] - vec[1]);
+    for (size_t i = 0; i < vec.size() - 1; ++i) {
+        float dif = std::abs(vec[i] - vec[i+1]);
+        if (dif > maxDif) maxDif = dif;
+    }
+    return maxDif;
+}
+
+int main() {
+    std::vector<float> A = {2.5, 7.0, 1.2, 9.5, 4.0};
+    std::cout << "La diferencia mas grande es: " << maximaDiferenciaConsecutiva(A) << std::endl;
+    return 0;
+}
