@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+
+std::vector<float> revertirEnOtro(const std::vector<float>& vec) {
+    std::vector<float> resultado;
+    for (int i = vec.size() - 1; i >= 0; --i) {
+        resultado.push_back(vec[i]);
+    }
+    return resultado;
+}
+
+int main() {
+    std::vector<float> original = {1.0, 2.0, 3.0, 4.0};
+    std::vector<float> invertido = revertirEnOtro(original);
+
+    std::cout << "Vector invertido: ";
+    for (float x : invertido) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
