@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main() {
+    std::vector<std::string> alumnos = {"Carlos Z.", "Ana R.", "Bruno D."};
+    std::vector<float> notas = {85.5, 94.0, 61.2};
+    int opcion;
+
+    do {
+        std::cout << "\n--- MENU ALUMNOS ---\n1) Ingresar Alumno\n2) Listar Alumnos\n3) Ordenar Alfabeticamente\n4) Mejor Nota\n5) Promedio del Curso\n0) Salir\nOpcion: ";
+        std::cin >> opcion;
+
+        if (opcion == 1) {
+            std::string nombre; float nota;
+            std::cout << "Nombre: "; std::cin.ignore(); std::getline(std::cin, nombre);
+            std::cout << "Nota: "; std::cin >> nota;
+            alumnos.push_back(nombre); notas.push_back(nota);
+        } 
+        else if (opcion == 2) {
+            for (size_t i = 0; i < alumnos.size(); ++i) {
+                std::cout << alumnos[i] << " -> " << notas[i] << std::endl;
+            }
+        } 
+        else if (opcion == 3) {
+            for (size_t i = 0; i < alumnos.size(); i++) {
+                for (size_t j = i + 1; j < alumnos.size(); j++) {
+                    if (alumnos[i] > alumnos[j]) {
+                        std::swap(alumnos[i], alumnos[j]);
+                        std::swap(notas[i], notas[j]);
+                    }
+                }
+            }
+            std::cout << "Lista ordenada alfabeticamente.\n";
+        } 
+        else if (opcion == 4) {
+            if (notas.empty()) continue;
+            float max = notas[0];
+            for(float n : notas) if(n > max) max = n;
+            std::cout << "La mejor nota es: " << max << std::endl;
+        } 
+        else if (opcion == 5) {
+            if (notas.empty()) continue;
+            double suma = 0;
+            for(float n : notas) suma += n;
+            std::cout << "El promedio del curso es: " << suma / notas.size() << std::endl;
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
