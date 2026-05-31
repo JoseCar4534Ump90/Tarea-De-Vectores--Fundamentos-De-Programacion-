@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+
+std::vector<float> promedioTresConsecutivos(const std::vector<float>& vec) {
+    std::vector<float> promedios;
+    if (vec.size() < 3) return promedios;
+    
+    for (size_t i = 0; i <= vec.size() - 3; ++i) {
+        float prom = (vec[i] + vec[i+1] + vec[i+2]) / 3.0;
+        promedios.push_back(prom);
+    }
+    return promedios;
+}
+
+int main() {
+    std::vector<float> A = {10.0, 20.0, 30.0, 40.0, 50.0};
+    std::vector<float> result = promedioTresConsecutivos(A);
+
+    for (size_t i = 0; i < result.size(); ++i) {
+        std::cout << "P" << i+1 << " = " << result[i] << std::endl;
+    }
+    return 0;
+}
