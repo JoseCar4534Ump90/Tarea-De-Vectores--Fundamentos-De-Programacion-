@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+float obtenerPromedio(const std::vector<float>& vec) {
+    if (vec.empty()) return 0;
+    float suma = std::accumulate(vec.begin(), vec.end(), 0.0);
+    return suma / vec.size();
+}
+
+int main() {
+    std::vector<float> valores = {10.0, 20.0, 30.0, 40.0};
+    std::cout << "El promedio es: " << obtenerPromedio(valores) << std::endl;
+    return 0;
+}
