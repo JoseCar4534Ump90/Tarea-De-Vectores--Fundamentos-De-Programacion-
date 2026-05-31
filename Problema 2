@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+
+float obtenerMinimo(const std::vector<float>& vec) {
+    if (vec.empty()) return 0;
+    float min = vec[0];
+    for (float num : vec) {
+        if (num < min) min = num;
+    }
+    return min;
+}
+
+int main() {
+    std::vector<float> valores = {12.5, 4.0, 23.8, 7.1, 15.3, 9.9};
+    std::cout << "El valor minimo es: " << obtenerMinimo(valores) << std::endl;
+    return 0;
+}
