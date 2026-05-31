@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+
+double obtenerMaximo(const std::vector<double>& vec) {
+    if (vec.empty()) return 0;
+    double max = vec[0];
+    for (double num : vec) {
+        if (num > max) max = num;
+    }
+    return max;
+}
+
+int main() {
+    std::vector<double> valores = {12.5, 4.0, 23.8, 7.1, 15.3, 9.9};
+    std::cout << "El valor maximo es: " << obtenerMaximo(valores) << std::endl;
+    return 0;
+}
