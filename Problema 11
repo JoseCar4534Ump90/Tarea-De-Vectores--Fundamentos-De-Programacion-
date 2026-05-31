@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+
+void contarTipos(const std::vector<float>& vec, int& pos, int& neg, int& ceros) {
+    pos = neg = ceros = 0;
+    for (float num : vec) {
+        if (num > 0) pos++;
+        else if (num < 0) neg++;
+        else ceros++;
+    }
+}
+
+int main() {
+    std::vector<float> datos = {-2.5, 0.0, 4.5, -1.0, 0.0, 8.2};
+    int p, n, c;
+    contarTipos(datos, p, n, c);
+
+    std::cout << "Positivos: " << p << " | Negativos: " << n << " | Ceros: " << c << std::endl;
+    return 0;
+}
