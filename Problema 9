@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+
+std::vector<float> concatenarVectores(const std::vector<float>& A, const std::vector<float>& B) {
+    std::vector<float> resultado = A;
+    resultado.insert(resultado.end(), B.begin(), B.end());
+    return resultado;
+}
+
+int main() {
+    std::vector<float> v1 = {1.1, 2.2};
+    std::vector<float> v2 = {3.3, 4.4, 5.5};
+    
+    std::vector<float> conca = concatenarVectores(v1, v2);
+    
+    std::cout << "Vector concatenado: ";
+    for (float x : conca) std::cout << x << " ";
+    std::cout << std::endl;
+    return 0;
+}
