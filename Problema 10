@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+
+std::vector<float> intercalarOrdenados(const std::vector<float>& A, const std::vector<float>& B) {
+    std::vector<float> resultado;
+    size_t i = 0, j = 0;
+    while (i < A.size() && j < B.size()) {
+        if (A[i] <= B[j]) {
+            resultado.push_back(A[i++]);
+        } else {
+            resultado.push_back(B[j++]);
+        }
+    }
+    while (i < A.size()) resultado.push_back(A[i++]);
+    while (j < B.size()) resultado.push_back(B[j++]);
+    return resultado;
+}
+
+int main() {
+    std::vector<float> A = {1.0, 3.5, 5.0};
+    std::vector<float> B = {2.0, 4.1, 6.0};
+
+    std::vector<float> result = intercalarOrdenados(A, B);
+
+    std::cout << "Vector intercalado: ";
+    for (float x : result) std::cout << x << " ";
+    std::cout << std::endl;
+    return 0;
+}
