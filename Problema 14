@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+
+void ordenarAscendente(std::vector<float>& vec) {
+    if (vec.empty()) return;
+    for (size_t i = 0; i < vec.size() - 1; ++i) {
+        for (size_t j = 0; j < vec.size() - i - 1; ++j) {
+            if (vec[j] > vec[j + 1]) {
+                std::swap(vec[j], vec[j + 1]);
+            }
+        }
+    }
+}
+
+int main() {
+    std::vector<float> datos = {5.4, 1.2, 9.9, 0.5, 3.3};
+    ordenarAscendente(datos);
+
+    std::cout << "Ordenado ascendente: ";
+    for (float x : datos) std::cout << x << " ";
+    std::cout << std::endl;
+    return 0;
+}
